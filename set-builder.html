@@ -188,6 +188,58 @@ td.w{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:righ
 .cols2{columns:2;column-gap:26px;font-size:13.5px;line-height:1.5}
 @media (max-width:620px){.cols2{columns:1}}
 .cols2 span{display:block;break-inside:avoid}
+
+/* ---- tablet and touch ---- */
+/* Keyed to the pointer rather than the width, so a touchscreen laptop gets it too
+   and a mouse user at the same width does not. */
+@media (pointer:coarse){
+  /* 44px is the floor for a finger. Every control below was under it. */
+  .chip{font-size:13px;padding:11px 14px;min-height:44px;min-width:44px;
+        display:inline-flex;align-items:center;justify-content:center}
+  .chips{gap:8px}
+  button{font-size:13px;padding:11px 16px;min-height:44px}
+  .acts{gap:8px}
+  .acts button{min-height:44px;min-width:44px;padding:0;font-size:15px;
+               display:inline-flex;align-items:center;justify-content:center}
+  /* 16px stops iOS zooming the page when a control takes focus. */
+  select,input[type=text],input[type=number]{font-size:16px;min-height:44px;padding:9px 10px}
+  .fsel{font-size:12px;gap:8px;flex-wrap:wrap;white-space:normal}
+  .fsel select{min-height:44px;padding:9px 10px;font-size:16px}
+  .fld{gap:7px}
+  .bar{gap:14px 18px;padding:15px 16px}
+  /* Two inline links in the masthead were 16px tall. Negative margin keeps the
+     line where it was while the padding grows the hit box. */
+  .mast .sub a{display:inline-block;padding:11px 6px;margin:-11px -6px}
+  /* Library rows are the other thing a finger aims at. */
+  .li{padding:13px 14px}
+  .li .add{font-size:20px}
+  .lib{max-height:min(70vh,700px);-webkit-overflow-scrolling:touch}
+  .slot{padding:12px 4px 12px 0}
+}
+/* A tap leaves :hover stuck on touch, so the cue moves to :active. */
+@media (hover:none){
+  button:hover{border-color:var(--rule-2)}
+  button.primary:hover{opacity:1}
+  .li:hover{background:transparent}
+  .li:hover .add{color:var(--ink-3)}
+  button:active,.chip:active{opacity:.65}
+  .li:active{background:var(--sunk)}
+}
+/* In portrait the corpus figures were pushed to the right of an empty row. */
+@media (max-width:900px){
+  .mast{align-items:flex-start}
+  .mast .corpus{margin-left:0;text-align:left}
+}
+/* On a narrow phone the pool readout would not wrap, which forced the whole
+   page 46px wider than the screen. Pre-existing; fixed here while in the file. */
+@media (max-width:620px){
+  .readout{white-space:normal;align-self:flex-start;padding-bottom:0}
+  /* A select will not shrink below its widest option unless every flex
+     ancestor is allowed to. */
+  .bar .fld,.bar .chips,.fsel{min-width:0;max-width:100%}
+  .fsel{flex:1 1 100%}
+  .fsel select{min-width:0;flex:1 1 auto}
+}
 </style>
 
 <div class="wrap">
