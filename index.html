@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>The Realistic Book Index</title>
+<meta name="description" content="An index of 729 jazz standards ordered by call likelihood, with every figure recountable from published files.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+:root{
+  --paper:#F0F1EE; --panel:#FAFAF8; --sunk:#E7E9E4; --ink:#191C1A; --ink-2:#4E5651; --ink-3:#7C847E;
+  --rule:#D3D7CF; --rule-2:#BFC5BB; --focus:#1F4E68;
+  --fam-songbook:#6E6656; --fam-bop:#2C6382; --fam-modern:#57487D; --fam-groove:#2C7A72; --fam-latin:#4A7A2E;
+  --alert:#A8342B; --alert-soft:#F2DDDA; --thin:#8A6D22; --thin-soft:#F3EAD4; --clear:#3D6B4E;
+  --shadow:0 1px 2px rgba(25,28,26,.06), 0 4px 14px rgba(25,28,26,.05);
+  --f-disp:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --f-body:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#141715; --panel:#1C201D; --sunk:#232723; --ink:#E9EBE7; --ink-2:#A9B1AB; --ink-3:#79817B;
+  --rule:#2E332F; --rule-2:#3C423D; --focus:#7FB8D4;
+  --fam-songbook:#B6A886; --fam-bop:#6FA8C8; --fam-modern:#A18FD0; --fam-groove:#5FBFB2; --fam-latin:#8CBE64;
+  --alert:#E4867C; --alert-soft:#3A2320; --thin:#D6B45C; --thin-soft:#332C18; --clear:#7FC095;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.3);
+  color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --paper:#141715; --panel:#1C201D; --sunk:#232723; --ink:#E9EBE7; --ink-2:#A9B1AB; --ink-3:#79817B;
+  --rule:#2E332F; --rule-2:#3C423D; --focus:#7FB8D4;
+  --fam-songbook:#B6A886; --fam-bop:#6FA8C8; --fam-modern:#A18FD0; --fam-groove:#5FBFB2; --fam-latin:#8CBE64;
+  --alert:#E4867C; --alert-soft:#3A2320; --thin:#D6B45C; --thin-soft:#332C18; --clear:#7FC095;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 4px 14px rgba(0,0,0,.3);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--f-body);
+     font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2px solid var(--focus);outline-offset:3px;border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+a{color:inherit}
+.wrap{max-width:780px;margin:0 auto;padding:0 22px 90px}
+.mast{border-bottom:2px solid var(--ink);padding-block:44px 16px;margin-bottom:34px}
+.mast h1{font-family:var(--f-disp);font-weight:700;font-size:clamp(32px,6.5vw,54px);
+         letter-spacing:-.025em;line-height:1;margin:0 0 12px;text-wrap:balance}
+.mast p{margin:0;color:var(--ink-2);font-size:18px;max-width:54ch}
+.figs{display:flex;flex-wrap:wrap;gap:6px 26px;margin-top:20px;
+      font-family:var(--f-mono);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+.figs b{color:var(--ink);font-weight:600;font-size:13px}
+h2{font-family:var(--f-disp);font-weight:700;font-size:21px;letter-spacing:-.01em;
+   margin:38px 0 10px;text-wrap:balance}
+p{margin:0 0 15px;max-width:66ch}
+.doors{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin:8px 0 6px}
+.door{display:block;text-decoration:none;border:1px solid var(--rule);background:var(--panel);
+      padding:20px 21px;box-shadow:var(--shadow)}
+.door:hover{border-color:var(--ink)}
+.door .k{font-family:var(--f-mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.door h3{font-family:var(--f-disp);font-weight:700;font-size:19px;margin:7px 0 7px;letter-spacing:-.01em}
+.door p{font-size:15px;color:var(--ink-2);margin:0;max-width:none}
+.door .go{display:inline-block;margin-top:12px;font-family:var(--f-mono);font-size:11.5px;
+          letter-spacing:.07em;color:var(--focus);font-weight:500}
+.rule{border:0;border-top:1px solid var(--rule);margin:38px 0 0}
+dl.ids{display:grid;grid-template-columns:auto 1fr;gap:7px 18px;margin:0;
+       font-family:var(--f-mono);font-size:12.5px}
+dl.ids dt{color:var(--ink-3);letter-spacing:.04em;white-space:nowrap}
+dl.ids dd{margin:0;word-break:break-word}
+dl.ids a{color:var(--focus)}
+code{font-family:var(--f-mono);font-size:.88em;background:var(--sunk);padding:1px 5px}
+.foot{margin-top:46px;padding-top:15px;border-top:1px solid var(--rule);
+      font-family:var(--f-mono);font-size:11px;letter-spacing:.05em;color:var(--ink-3);line-height:1.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="mast">
+    <h1>The Realistic Book Index</h1>
+    <p>An index of jazz standards ordered by how likely a tune is to be called, with every
+       figure in it recountable from files anyone can download.</p>
+    <div class="figs">
+      <span><b>729</b> titles</span>
+      <span><b>8</b> indexes</span>
+      <span><b>1,420</b> screened</span>
+      <span><b>94</b> checks</span>
+    </div>
+  </header>
+
+  <p>Most repertoire lists are assembled from taste and presented as fact. This one states its
+     sources, prints what it declined as well as what it kept, and closes its arithmetic by two
+     independent routes. Where a judgment was made, the judgment is named as one.</p>
+
+  <p>Two things here are free and open. Neither requires the book.</p>
+
+  <div class="doors">
+    <a class="door" href="set-builder.html">
+      <span class="k">the tool</span>
+      <h3>Set Builder</h3>
+      <p>Order a set so no two tunes in a row are the same kind of tune. Six weighted axes scored
+         at every joint, caps on blues, bossa, groove and ballad, and a control for tunes a singer
+         can front.</p>
+      <span class="go">Build a set &rarr;</span>
+    </a>
+    <a class="door" href="https://github.com/realisticbookindex/realistic-book-index">
+      <span class="k">the evidence</span>
+      <h3>Replication materials</h3>
+      <p>Every data file, the screening prompt with its checksum, and a verification script that
+         recomputes ninety-four printed figures and tells you if one is wrong.</p>
+      <span class="go">Open the repository &rarr;</span>
+    </a>
+  </div>
+
+  <h2>How to check it in twenty minutes</h2>
+  <p>Clone the repository and run one command. The script reads nothing outside the repository
+     and needs only Python 3.</p>
+  <p><code>python3 code/verify.py</code></p>
+  <p>It prints one line per check and exits zero when all of them pass. Twelve of the checks
+     rebuild a join from the source files rather than read a stored column, because a column
+     cannot confirm itself. A second command verifies that the screening prompt printed in the
+     book is the same file, byte for byte, as the one archived under a DOI.</p>
+  <p>None of this asks you to agree with a single seating decision.</p>
+
+  <h2>Taking exception</h2>
+  <p>The volume states the procedure for disagreeing with it: declare your own filter, run the
+     same screen, print your own residues, and publish the difference. A divergence traceable to
+     a declared filter is not a failure of either run. It is the object the book says it wants and
+     cannot produce alone.</p>
+
+  <hr class="rule">
+  <h2>Permanent identifiers</h2>
+  <dl class="ids">
+    <dt>repository</dt>
+    <dd><a href="https://github.com/realisticbookindex/realistic-book-index">github.com/realisticbookindex/realistic-book-index</a></dd>
+    <dt>all versions</dt>
+    <dd><a href="https://doi.org/10.5281/zenodo.22861481">10.5281/zenodo.22861481</a></dd>
+    <dt>this version</dt>
+    <dd><a href="https://doi.org/10.5281/zenodo.22862514">10.5281/zenodo.22862514</a> &middot; v15.0.1</dd>
+    <dt>prompt SHA-256</dt>
+    <dd>03f2fb3649c66ed17987843b02ff54e1554048b80fe10c41badd7789cb0718ea</dd>
+  </dl>
+
+  <p class="foot">
+    The volume is in preparation. The data files and the verification script are published under
+    CC BY 4.0 and the MIT License respectively; the transcribed source lists remain the property
+    of their compilers and are credited in the repository.<br>
+    &copy; 2026 Geoffrey Jacob Caputo
+  </p>
+
+</div>
+</body>
+</html>
