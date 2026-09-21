@@ -194,7 +194,7 @@ td.w{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:righ
   <header class="mast">
     <div>
       <h1>The Realistic Book Set Builder</h1>
-      <p class="sub">Order a set from the Index so no two tunes in a row are the same kind of tune. Six axes, weighted, scored at every joint.</p>
+      <p class="sub">Order a set from the Index so no two tunes in a row are the same kind of tune. Six axes, weighted, scored at every joint. <a href="#manual">How to work it</a></p>
     </div>
     <div class="corpus"><b>594</b> titles<br>Index <b>1A</b> 93 &middot; <b>1B</b> 53 &middot; <b>2</b> 116 &middot; <b>3</b> 141 &middot; <b>4</b> 99<br>
       reached or platform - <b>5A</b> 48 &middot; <b>5B</b> 26 &middot; <b>5C</b> 18</div>
@@ -218,7 +218,7 @@ td.w{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:righ
       <div class="chips" id="bands">
         <button class="chip" data-b="call" aria-pressed="true">call likelihood</button>
         <label class="fsel" for="platmode">jam platforms<select id="platmode">
-          <option value="mix">with their index</option>
+          <option value="mix">with their index (light 5A/5B/5C)</option>
           <option value="always">always in</option>
           <option value="only">only platforms</option>
         </select></label>
@@ -283,6 +283,193 @@ td.w{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:righ
       </div>
     </section>
   </div>
+
+  <section class="method" id="manual">
+    <h2>How to work it</h2>
+    <p class="lede">Every control, what it does, and what it leaves alone. The section after this one
+      explains why the tool is built the way it is; this one explains how to drive it.</p>
+
+    <h3>The shape of the page</h3>
+    <p>Controls run across the top. Below them the set sits on the left and the Index on the right.
+      Changing any control updates the Index list and the pool line at once. Only <b>Build a set</b>
+      rewrites the set, so you can move the controls around under a set you have already built without
+      disturbing it.</p>
+
+    <h3>The order to work in</h3>
+    <p>Say how long the set is. Say what may be drawn from. Say what the set must and must not hold.
+      Build. Read the audit. Move or swap by hand. The tool never edits a set you built by hand unless
+      you press <b>Build a set</b> again.</p>
+
+    <div class="mgrid">
+      <div>
+        <h3>Set length</h3>
+        <p>A number from 3 to 16, starting at 8. It is a target rather than a promise. If the pool will
+          not order a chain that long, nothing is built and a line appears naming the longest it will
+          order, so the next press succeeds.</p>
+      </div>
+      <div>
+        <h3>Indexes in play</h3>
+        <p>Eight chips, one per index, pressed to toggle. 1A and 1B start on. This is the first gate: a
+          title has to sit in a lit index to be drawn. Jam platforms are the one exception, below.</p>
+      </div>
+    </div>
+
+    <h3>Pool - call likelihood</h3>
+    <p>One chip, on at the start. On, the pool holds the three bands the call instruments reach -
+      <b>Reconciled</b>, <b>Logged</b> and <b>Distilled</b>. Off, <b>Sub-Floor</b> and <b>Untouched</b>
+      come in as well. Across all eight indexes that is 325 titles against 594, and the reach is uneven
+      on purpose.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>index</th><th class="w">on</th><th class="w">off</th><th>what the difference is</th></tr></thead>
+      <tbody>
+        <tr><td>1A</td><td class="w">91</td><td class="w">93</td><td>the tunes the instruments name most</td></tr>
+        <tr><td>1B</td><td class="w">53</td><td class="w">53</td><td>untouched by the filter</td></tr>
+        <tr><td>2</td><td class="w">55</td><td class="w">116</td><td>about half</td></tr>
+        <tr><td>3</td><td class="w">20</td><td class="w">141</td><td>a depth index, and this is what depth costs</td></tr>
+        <tr><td>4</td><td class="w">15</td><td class="w">99</td><td>a period house, reached by almost nothing</td></tr>
+        <tr><td>5A</td><td class="w">47</td><td class="w">48</td><td rowspan="3">Index 5 enters at its reached and platform sets already</td></tr>
+        <tr><td>5B</td><td class="w">26</td><td class="w">26</td></tr>
+        <tr><td>5C</td><td class="w">18</td><td class="w">18</td></tr>
+      </tbody></table></div>
+
+    <h3>Pool - jam platforms</h3>
+    <p>The thirty-six boldface titles, the ones marked as counting off with no singer. They sit at
+      Index 5A, 5B and 5C - ten, seventeen and nine. The control has three settings, and the one to
+      watch is the first.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>setting</th><th>what reaches the pool</th><th>what you must light first</th></tr></thead>
+      <tbody>
+        <tr><td>with their index</td><td>they arrive only when 5A, 5B or 5C is in play, alongside everything else those indexes bring</td><td><b>5A, 5B or 5C</b></td></tr>
+        <tr><td>always in</td><td>all thirty-six, whatever the index chips, the bands and the skill path say</td><td>nothing</td></tr>
+        <tr><td>only platforms</td><td>the pool is the thirty-six and nothing else</td><td>nothing</td></tr>
+      </tbody></table></div>
+    <p>Leaving this on <b>with their index</b> with no Index 5 chip lit is why a platform sometimes
+      appears and sometimes does not. Nothing is broken when that happens; the tap is closed.</p>
+    <p><b>A platform is exempt from call likelihood in all three settings.</b> That exemption is not a
+      setting and cannot be switched off. Twenty-six of the thirty-six sit in the Untouched band, which
+      the filter drops, so without the exemption the mark would be invisible whenever the filter was on.
+      Call likelihood goes on binding everything that is not a platform: with all eight indexes lit and
+      the filter on, no Untouched title reaches the pool except a platform.</p>
+
+    <h3>Pool - a singer can front it</h3>
+    <p>Forty-three instrumental seats carrying a lyric a singer can front, at Indexes 1A, 1B, 2 and 3 -
+      sixteen, ten, twelve and five.</p>
+    <div class="tblwrap"><table>
+      <thead><tr><th>setting</th><th>what it does</th></tr></thead>
+      <tbody>
+        <tr><td>any</td><td>no effect; the forty-three are drawn like anything else</td></tr>
+        <tr><td>at least one</td><td>the builder keeps drawing until one is in the set, and says so if none is available</td></tr>
+        <tr><td>only these</td><td>the pool narrows to the forty-three <em>within the indexes already lit</em></td></tr>
+      </tbody></table></div>
+    <p><b>only these</b> narrows; it does not reach past the index chips the way the platform settings
+      do. The reading is index by index, so lighting Index 2 alone and asking for only these returns the
+      twelve at Index 2 and not the other thirty-one.</p>
+
+    <h3>Skill path</h3>
+    <p>Four chips, all on at the start: <b>fnd</b> foundational, 62 titles; <b>emg</b> emerging
+      intermediate, 58; <b>int</b> intermediate, 47; <b>off the path</b>, the 427 the path does not
+      place. Turning one off removes those titles from the pool. Phase filters; it is not a seventh
+      axis, and the builder does not try to alternate hard and easy.</p>
+
+    <h3>One at most, each</h3>
+    <p>Six kinds, each on a three-way select. <b>up to 1</b> is the ceiling and the default. <b>exactly
+      1</b> makes the builder keep drawing until one is present. <b>none</b> bars the kind from the set
+      entirely. The counts are blues 70, minor blues 15, rhythm changes 31, bossa 16, groove 19, ballad
+      84, and 234 of the 594 titles carry at least one.</p>
+
+    <h3>Require</h3>
+    <div class="tblwrap"><table>
+      <thead><tr><th>chip</th><th>start</th><th>what it enforces</th></tr></thead>
+      <tbody>
+        <tr><td>spread them out</td><td>on</td><td>no two capped tunes back to back, and required ones placed as far apart as the length allows</td></tr>
+        <tr><td>a Latin feel</td><td>off</td><td>at least one tune on a Brazilian or Afro-Caribbean feel; 49 titles qualify</td></tr>
+        <tr><td>an anchor every four</td><td>on</td><td>no run of four without something from Index 1A or 1B. It goes inert when neither index is lit</td></tr>
+        <tr><td>a jam platform</td><td>off</td><td>at least one platform in the finished set, not merely in the pool</td></tr>
+        <tr><td>one from each index</td><td>off</td><td>every lit index that has titles in the pool is represented at least once</td></tr>
+      </tbody></table></div>
+
+    <h3>Build a set, Clear, Export</h3>
+    <p><b>Build a set</b> draws at random from the pool and keeps the first arrangement that breaks none
+      of the rules above, trying up to six hundred times. <b>Clear</b> empties the set and leaves every
+      control where it is. <b>Export</b> saves the set as a plain text file with each title's seat, band
+      and idiom; if the browser refuses the download, the same text goes to the clipboard and the button
+      says so.</p>
+
+    <h3>The set, and the line between two tunes</h3>
+    <p>Each tune shows its position, its title, its chips, and three buttons on the right - move up,
+      move down, remove. Between every pair sits a line carrying the joint score and the axes the two
+      tunes hold in common. A line reading <b>repeat</b> is under 25 and wants one of the two moved;
+      <b>thin</b> is 25 to 49 and is playable once; anything unlabeled cleared 50.</p>
+    <p>The line above the set reads the weakest joint, the average, how many capped tunes are in and how
+      far apart the closest two sit, and the phase mix.</p>
+
+    <h3>The Index panel</h3>
+    <p>Everything in the pool, longest first by index order. The search box matches on title. The three
+      selects narrow by idiom, form and feel. Clicking a title appends it to the end of the set, and a
+      title already in the set shows a dot instead of a plus. The foot of the list reads how many are
+      showing, how many are in play and how many are in the Index; past three hundred it shows the first
+      three hundred only.</p>
+
+    <h3>The audit</h3>
+    <div class="tblwrap"><table>
+      <thead><tr><th>finding</th><th>what it means</th></tr></thead>
+      <tbody>
+        <tr><td>repeat</td><td>two adjacent tunes scored under 25. It names what they hold in common</td></tr>
+        <tr><td>two thin</td><td>two thin joints in a row. One of the three tunes wants moving</td></tr>
+        <tr><td>look-back</td><td>a tune scored under 25 against the one two back. Alternating two kinds is not contrast</td></tr>
+        <tr><td>feel, idiom, origin</td><td>a window rule broken: three of one feel in four, four of one idiom family in four, five of one origin in five</td></tr>
+        <tr><td>anchor</td><td>four in a row with nothing from Index 1A or 1B</td></tr>
+        <tr><td>cap, excluded, missing</td><td>a capped kind appears more than once, appears while switched off, or is required and absent</td></tr>
+        <tr><td>adjacent</td><td>two capped tunes sitting back to back while spread them out is on</td></tr>
+      </tbody></table></div>
+    <p>A hand-built set is audited exactly as a built one is. The audit reports; it never edits.</p>
+
+    <h3>The pool line</h3>
+    <p>Under the controls: how many titles are in play out of 594, how many are platforms, how many a
+      singer can front, then the per-index split. An index showing <code>3 20/141</code> is admitting 20
+      of its 141 seats, and a bare number means the index is admitting all of them.</p>
+
+    <div class="mgrid">
+      <div>
+        <h3>Legend - the chips on a title</h3>
+        <div class="tblwrap"><table>
+          <tbody>
+            <tr><td>colored, first</td><td>the idiom, tinted by family</td></tr>
+            <tr><td>plain</td><td>form, feel and terrain, shown only when not the default - song form, swing, functional</td></tr>
+            <tr><td>dotted</td><td>a capped kind: bossa, groove or ballad</td></tr>
+            <tr><td>teal</td><td><b>platform</b> - counts off with no singer</td></tr>
+            <tr><td>rust</td><td><b>singer</b> - carries a lyric a singer can front</td></tr>
+            <tr><td>solid</td><td>the band</td></tr>
+            <tr><td>dashed</td><td>the phase, when the skill path places it</td></tr>
+            <tr><td>last</td><td>the seat, as index and number</td></tr>
+          </tbody></table></div>
+      </div>
+      <div>
+        <h3>Legend - the five bands</h3>
+        <div class="tblwrap"><table>
+          <thead><tr><th>band</th><th class="w">titles</th><th>call likelihood</th></tr></thead>
+          <tbody>
+            <tr><td>Reconciled</td><td class="w">145</td><td>passes</td></tr>
+            <tr><td>Logged</td><td class="w">111</td><td>passes</td></tr>
+            <tr><td>Distilled</td><td class="w">43</td><td>passes</td></tr>
+            <tr><td>Sub-Floor</td><td class="w">44</td><td>dropped when the filter is on</td></tr>
+            <tr><td>Untouched</td><td class="w">251</td><td>dropped, unless the title is a platform</td></tr>
+          </tbody></table></div>
+      </div>
+    </div>
+
+    <h3>When it will not build</h3>
+    <p>A red line appears above the controls rather than a half-broken set. It names the percentage of
+      pairs inside the pool that clear a joint of 50, gives the longest set the pool will order, and says
+      which lit indexes are bringing less than their full seat count. Setting the length to the number it
+      names and pressing again always works. Widening the pool, lighting another index or switching a cap
+      off are the other three moves.</p>
+
+    <h3>What is kept, and where</h3>
+    <p>The set you are holding is stored in this browser and comes back on the next visit. Nothing else
+      is stored and nothing leaves the page. The control positions are not stored; they start where this
+      page starts them every time.</p>
+  </section>
 
   <section class="method">
     <h2>How a joint is scored</h2>
@@ -372,7 +559,7 @@ td.w{font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:righ
 
     <div style="margin-top:26px;border-top:1px solid var(--rule);padding-top:16px">
       <h3>The ballad reading, in full</h3>
-      <p style="max-width:none">The volume carries no ballad mark and makes no tempo claim, because a leader sets every tempo on the night and a vocalist moves every key. These eighty-four are a reading of which titles are habitually counted off slow. <b>The reading is published.</b> It is the <span style="font-family:var(--f-mono)">ballad</span> column of <span style="font-family:var(--f-mono)">data/style_classification.tsv</span> in the repository, and the ninetieth check of <span style="font-family:var(--f-mono)">code/verify.py</span> holds it against the roster - 75 marks in the style file and 9 more in the Index 4 extension, every one on a seated row, no third value. It is still not a mark on the Index and no printed count depends on it; it is published so that a reader can disagree with it in the same way they can disagree with anything else in that file. A title absent from the list is not thereby fast; it is a title this reading did not claim.</p>
+      <p style="max-width:none">The volume carries no ballad mark and makes no tempo claim, because a leader sets every tempo on the night and a vocalist moves every key. These eighty-four are a reading of which titles are habitually counted off slow. <b>The reading is published.</b> It is the <span style="font-family:var(--f-mono)">ballad</span> column of <span style="font-family:var(--f-mono)">data/style_classification.tsv</span> in the repository, and check 88 of <span style="font-family:var(--f-mono)">code/verify.py</span> holds it against the roster - 75 marks in the style file and 9 more in the Index 4 extension, every one on a seated row, no third value. It is still not a mark on the Index and no printed count depends on it; it is published so that a reader can disagree with it in the same way they can disagree with anything else in that file. A title absent from the list is not thereby fast; it is a title this reading did not claim.</p>
       <div class="cols2" id="balladlist"></div>
     </div>
 
