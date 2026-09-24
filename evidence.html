@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The evidence &middot; The Realistic Book Index</title>
+<meta name="description" content="What three independent instruments return against the Realistic Book Index, tier by tier: a 2010 US survey, a 2019 London call log, and fourteen 2026 degree programs.">
+<link rel="canonical" href="https://therealisticbook.com/evidence.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    color-scheme: light;
+    --plane:        #f2f2ef;
+    --surface:      #fcfcfb;
+    --ink:          #0b0b0b;
+    --ink-2:        #52514e;
+    --ink-muted:    #898781;
+    --grid:         #e1e0d9;
+    --axis:         #c3c2b7;
+    --hairline:     rgba(11,11,11,0.10);
+    --s1:           #2a78d6;
+    --s2:           #eb6834;
+    --s3:           #1baf7a;
+    --tip-bg:       #0b0b0b;
+    --tip-ink:      #fcfcfb;
+
+    --f-display: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --f-sans: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --plane:      #0d0d0d;
+      --surface:    #1a1a19;
+      --ink:        #ffffff;
+      --ink-2:      #c3c2b7;
+      --ink-muted:  #898781;
+      --grid:       #2c2c2a;
+      --axis:       #383835;
+      --hairline:   rgba(255,255,255,0.10);
+      --s1:         #3987e5;
+      --s2:         #d95926;
+      --s3:         #199e70;
+      --tip-bg:     #fcfcfb;
+      --tip-ink:    #0b0b0b;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --plane:      #0d0d0d;
+    --surface:    #1a1a19;
+    --ink:        #ffffff;
+    --ink-2:      #c3c2b7;
+    --ink-muted:  #898781;
+    --grid:       #2c2c2a;
+    --axis:       #383835;
+    --hairline:   rgba(255,255,255,0.10);
+    --s1:         #3987e5;
+    --s2:         #d95926;
+    --s3:         #199e70;
+    --tip-bg:     #fcfcfb;
+    --tip-ink:    #0b0b0b;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--plane);
+    color: var(--ink);
+    font-family: var(--f-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 56px 72px;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+  }
+
+  .eyebrow {
+    font-family: var(--f-sans);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: var(--f-display);
+    font-weight: 700;
+    font-size: clamp(30px, 6vw, 44px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    margin: 0 0 18px;
+    text-wrap: balance;
+  }
+  .lede {
+    font-family: var(--f-display);
+    font-size: clamp(17px, 2.4vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-2);
+    margin: 0;
+    max-width: 60ch;
+  }
+  .lede strong { color: var(--ink); font-weight: 600; }
+
+  section { display: flex; flex-direction: column; gap: 16px; }
+  h2 {
+    font-family: var(--f-display);
+    font-size: 23px;
+    font-weight: 600;
+    line-height: 1.25;
+    margin: 0;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .sub {
+    margin: -8px 0 0;
+    font-size: 14px;
+    color: var(--ink-2);
+    max-width: 62ch;
+  }
+
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    padding: 20px 18px 14px;
+  }
+
+  .legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 20px;
+    margin: 0 0 14px;
+    padding: 0 2px;
+    font-size: 13px;
+    color: var(--ink-2);
+  }
+  .legend span { display: inline-flex; align-items: center; gap: 8px; }
+  .legend i {
+    width: 11px; height: 11px; border-radius: 2px;
+    display: inline-block; flex: none;
+  }
+
+  figure { margin: 0; position: relative; }
+  svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .bar { transition: opacity .12s ease; }
+  .dim .bar { opacity: .32; }
+  .dim .bar.on { opacity: 1; }
+  .hit { fill: transparent; cursor: default; }
+
+  .tip {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    background: var(--tip-bg);
+    color: var(--tip-ink);
+    border-radius: 3px;
+    padding: 8px 10px;
+    font-size: 12.5px;
+    line-height: 1.45;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translate(-50%, -100%);
+    transition: opacity .1s ease;
+  }
+  .tip.show { opacity: 1; }
+  .tip b { font-weight: 600; }
+  .tip .num { font-family: var(--f-mono); }
+
+  details {
+    border-top: 1px solid var(--hairline);
+    margin-top: 12px;
+    padding-top: 10px;
+  }
+  summary {
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    list-style: none;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "+ "; }
+  details[open] summary::before { content: "– "; }
+  summary:focus-visible { outline: 2px solid var(--s1); outline-offset: 3px; }
+
+  .tablewrap { overflow-x: auto; margin-top: 12px; }
+  table { border-collapse: collapse; width: 100%; font-size: 13px; }
+  th, td {
+    text-align: right;
+    padding: 6px 10px 6px 0;
+    border-bottom: 1px solid var(--hairline);
+    font-variant-numeric: tabular-nums;
+    font-family: var(--f-mono);
+    font-weight: 400;
+    white-space: nowrap;
+  }
+  th { color: var(--ink-muted); font-family: var(--f-sans); font-weight: 600; font-size: 12px; }
+  th:first-child, td:first-child {
+    text-align: left; font-family: var(--f-sans); padding-left: 0;
+  }
+
+  .tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .tile { background: var(--surface); padding: 18px 16px 16px; }
+  .tile .v {
+    font-family: var(--f-sans);
+    font-size: 30px;
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .tile .v small { font-size: 17px; font-weight: 500; color: var(--ink-muted); }
+  .tile .l {
+    margin-top: 9px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--ink-2);
+  }
+
+  .note {
+    font-size: 13px;
+    color: var(--ink-muted);
+    max-width: 62ch;
+    margin: 0;
+  }
+  .note code {
+    font-family: var(--f-mono);
+    font-size: 12px;
+    color: var(--ink-2);
+  }
+  footer {
+    border-top: 1px solid var(--hairline);
+    padding-top: 18px;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+
+  nav.site {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 13px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--hairline);
+    margin-bottom: 8px;
+  }
+  nav.site a {
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  nav.site a:hover { text-decoration: underline; }
+  nav.site span { color: var(--ink-muted); }
+  nav.site span::before { content: "/ "; }
+  .flinks { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .flinks a { color: var(--ink-2); text-decoration: none; border-bottom: 1px solid var(--hairline); }
+  .flinks a:hover { color: var(--ink); }
+  a:focus-visible, summary:focus-visible { outline: 2px solid var(--s1); outline-offset: 3px; }
+</style>
+
+</head>
+<body>
+
+<div class="wrap">
+
+  <nav class="site">
+    <a href="/">The Realistic Book Index</a>
+    <span>Evidence</span>
+  </nav>
+
+  <header>
+    <h1>Three measures, one curve</h1>
+    <p class="lede">The eight tiers were fixed before any of these three instruments was opened.
+      A <strong>2010 survey</strong> of thirty-seven US educator-performers, a <strong>2019 log</strong>
+      of 2,038 calls at 160 London sessions, and <strong>fourteen degree programs'</strong> published
+      repertoire lists, retrieved in August 2026. None cites the others. All three fall off at the
+      same place.</p>
+  </header>
+
+  <section>
+    <h2>What each instrument reaches, tier by tier</h2>
+    <p class="sub">Share of each tier's seated titles that the instrument names. The top two tiers are
+      the instrumental core; below them the agreement thins, which is the shape the tier definitions
+      predict and the reason the core is stated as a narrow claim.</p>
+    <div class="panel">
+      <div class="legend" id="legA"></div>
+      <figure><div id="chartA"></div><div class="tip" id="tipA"></div></figure>
+      <details>
+        <summary>Table</summary>
+        <div class="tablewrap"><table id="tblA"></table></div>
+      </details>
+    </div>
+    <p class="note">Two departures from the descent, stated here rather than left to be found.
+      At Index&nbsp;1B the survey reaches 94.3% where the log reaches 73.6%, which is the tier the two
+      instruments most disagree about and the reason 1B is printed as core-adjacent rather than core.
+      At Index&nbsp;5 all three rise again: it is the vocal division, measured on a different question,
+      and its reach figures are not a claim about instrumental call.</p>
+    <p class="note">Instrument reach is read off TABLE VI.3.b: the survey column is Distilled plus
+      Sub-Floor plus Reconciled, the log column is Logged plus Reconciled. Panel figures are App. H.
+      Index&nbsp;5 is 5A, 5B and 5C combined, 227 titles.</p>
+  </section>
+
+  <section>
+    <h2>Where the calls actually fall</h2>
+    <p class="sub">The same log, read as a distribution rather than as a checklist. Each group's share
+      of the Index's 729 seated titles against its share of the 2,038 calls the log recorded. The two
+      shares invert.</p>
+    <div class="panel">
+      <div class="legend" id="legC"></div>
+      <figure><div id="chartC"></div><div class="tip" id="tipC"></div></figure>
+      <details>
+        <summary>Table</summary>
+        <div class="tablewrap"><table id="tblC"></table></div>
+      </details>
+    </div>
+    <div class="tiles">
+      <div class="tile">
+        <div class="v">12.8<small>%</small></div>
+        <div class="l">of the Index is Index&nbsp;1A &mdash; ninety-three titles</div>
+      </div>
+      <div class="tile">
+        <div class="v">58.4<small>%</small></div>
+        <div class="l">of the log's calls land on those ninety-three &mdash; 1,190 of 2,038</div>
+      </div>
+      <div class="tile">
+        <div class="v">125<small>&thinsp;/&thinsp;308</small></div>
+        <div class="l">of every title the log ever recorded sits in Index&nbsp;1</div>
+      </div>
+    </div>
+    <p class="note">Read deeper into the log and the gradient holds: Index&nbsp;1 holds nine of the raw log's
+      ten most-called titles, twenty-two of its top twenty-five, forty-three of its top fifty and
+      seventy-six of its top hundred. Those count the log as kept; the Top&nbsp;25 figure in the last
+      panel counts the strata its keeper published, which is a different set of twenty-five titles. Index&nbsp;2's call share is the residual of the two figures the
+      volume prints, since the three groups partition all 729 titles.</p>
+  </section>
+
+  <section>
+    <h2>Retention against recording rank</h2>
+    <p class="sub">Titles seated from each successive band of two hundred ranks in the
+      jazzstandards.com thousand. The screening runs that produced the proposals never saw the rank
+      column, which is what makes this the strongest external check in the volume, and the series is
+      recomputable by a reader from the published ranking and the declines at App.&nbsp;C.</p>
+    <div class="panel">
+      <figure><div id="chartB"></div><div class="tip" id="tipB"></div></figure>
+      <details>
+        <summary>Table</summary>
+        <div class="tablewrap"><table id="tblB"></table></div>
+      </details>
+    </div>
+  </section>
+
+  <section>
+    <h2>The one measure that does not join</h2>
+    <p class="sub">Take two indexes, pair every title on the first with every title on the second, and
+      ask how often the measure puts the <em>second</em> index's title ahead. Ties count as half.
+      Near zero the measure agrees with the volume. At fifty it cannot see a difference between the two
+      tiers. Above fifty it reverses them. The recording ranking built the pool and drew no tier line,
+      so this is a held-out test rather than a circular one.</p>
+    <div class="panel">
+      <div class="legend" id="legD"></div>
+      <figure><div id="chartD"></div><div class="tip" id="tipD"></div></figure>
+      <details>
+        <summary>Table</summary>
+        <div class="tablewrap"><table id="tblD"></table></div>
+      </details>
+    </div>
+    <p class="note">Rows run in the order the volume prints them, by what the ranking returns. The two
+      call instruments stay left of the line on every row. The ranking crosses it three times and runs
+      to 85 at Index&nbsp;3 against Index&nbsp;4, where it prefers the older, longer-in-print material
+      the period house exists to hold. On that row the log and the survey are near fifty because both
+      are largely silent there, which is a tie rather than an opposition, and the volume says so.
+      Figures for Index&nbsp;3 against Index&nbsp;4 are printed as approximate in the source.</p>
+  </section>
+
+  <section>
+    <h2>The test run backward</h2>
+    <p class="sub">Starting from what each compiler put at the top of his own apparatus and asking
+      where those titles land here.</p>
+    <div class="tiles">
+      <div class="tile">
+        <div class="v">92<small>&thinsp;/&thinsp;92</small></div>
+        <div class="l">titles on the survey's top list are seated in the Index</div>
+      </div>
+      <div class="tile">
+        <div class="v">83<small>&thinsp;/&thinsp;92</small></div>
+        <div class="l">of those land at Index&nbsp;1, the two core tiers</div>
+      </div>
+      <div class="tile">
+        <div class="v">92<small>&thinsp;/&thinsp;92</small></div>
+        <div class="l">also appear on the log-keeper's own published Top&nbsp;201</div>
+      </div>
+      <div class="tile">
+        <div class="v">23<small>&thinsp;/&thinsp;25</small></div>
+        <div class="l">of the log-keeper's <em>published</em> Top&nbsp;25 sit at Index&nbsp;1A</div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>Figures measured from Draft&nbsp;16-2, 236 pages. Sources: TABLE VI.3.b, App.&nbsp;H, §&nbsp;III, and the Foreword. Every one of them is recountable from files anyone can download.</div>
+    <div class="flinks">
+      <a href="https://github.com/realisticbookindex/realistic-book-index">The evidence</a>
+      <a href="/set-builder.html">The tool</a>
+      <a href="https://www.youtube.com/@TheRealisticBookIndex">The playlists</a>
+      <a href="/">Home</a>
+    </div>
+    <div>&copy; 2026 Geoffrey Jacob Caputo</div>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var SERIES = [
+    { key: "survey", name: "The 2010 survey", token: "--s1" },
+    { key: "log",    name: "The 2019 log",    token: "--s2" },
+    { key: "panel",  name: "Fourteen programs, 2026", token: "--s3" }
+  ];
+
+  // Reach counts read off TABLE VI.3.b (Reconciled / Logged / Distilled / Sub-Floor)
+  // and App. H. survey = Rec+Dist+Sub, log = Rec+Log.
+  var TIERS = [
+    { tier: "1A", n: 93,  survey: 86, log: 86, panel: 93 },
+    { tier: "1B", n: 53,  survey: 50, log: 39, panel: 52 },
+    { tier: "2",  n: 116, survey: 40, log: 45, panel: 88 },
+    { tier: "3",  n: 141, survey: 19, log: 19, panel: 47 },
+    { tier: "4",  n: 99,  survey: 14, log: 13, panel: 16 },
+    { tier: "5",  n: 227, survey: 23, log: 54, panel: 92 }
+  ];
+
+  // Share of the 729 seated titles against share of the log's 2,038 calls.
+  // Index 1 and Indexes 3-5 are printed at App. K; Index 2 is the residual.
+  var CONC = [
+    { group: "Index 1",          sub: "146 titles", full: "Index 1A and Index 1B",  titles: 20.0, calls: 68.3, resid: false },
+    { group: "Index 2",          sub: "116 titles", full: "Index 2",                titles: 15.9, calls: 19.4, resid: true  },
+    { group: "Indexes 3–5", sub: "467 titles", full: "Indexes 3, 4, 5A, 5B and 5C", titles: 64.1, calls: 12.3, resid: false }
+  ];
+
+  // TABLE II.7, the pair table. Each cell: share of A x B pairs in which the
+  // SECOND index's title scores higher on that measure. Ties count as half.
+  var PAIRS = [
+    { pair: "1A vs 3",  rank: 8,  log: 7,  survey: 5,  read: "All three put 1A first." },
+    { pair: "1B vs 3",  rank: 10, log: 20, survey: 3,  read: "Same story one band down." },
+    { pair: "1A vs 2",  rank: 22, log: 13, survey: 8,  read: "All three still put 1A first." },
+    { pair: "1B vs 2",  rank: 23, log: 31, survey: 10, read: "The seam already named in the book." },
+    { pair: "2 vs 3",   rank: 25, log: 38, survey: 40, read: "Rank still holds. The two rooms are running out of titles they have seen." },
+    { pair: "1A vs 4",  rank: 36, log: 6,  survey: 7,  read: "Rank is already weaker. The two rooms still put 1A first." },
+    { pair: "1A vs 1B", rank: 48, log: 23, survey: 24, read: "Rank is a coin flip. The log and survey are not." },
+    { pair: "1A vs 5A", rank: 56, log: 10, survey: 8,  read: "Rank puts the vocal list ahead. The rooms do the opposite." },
+    { pair: "2 vs 4",   rank: 68, log: 37, survey: 44, read: "Rank prefers the old swing list." },
+    { pair: "3 vs 4",   rank: 85, log: 50, survey: 53, read: "Rank runs hard backward. Log and survey mostly tie.", approx: true }
+  ];
+
+  var BANDS = [
+    { band: "1–200",    seated: 191 },
+    { band: "201–400",  seated: 145 },
+    { band: "401–600",  seated: 90  },
+    { band: "601–800",  seated: 63  },
+    { band: "801–1000", seated: 47  }
+  ];
+
+  var NS = "http://www.w3.org/2000/svg";
+  function el(name, attrs) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) { if (attrs[k] !== null) e.setAttribute(k, attrs[k]); }
+    return e;
+  }
+  function pct(part, whole) { return (part / whole) * 100; }
+  function fmt1(v) { return (Math.round(v * 10) / 10).toFixed(1); }
+
+  // Rounded at the data end, square at the baseline. Columns grow upward.
+  function colPath(x, y, w, h, r) {
+    if (h <= 0.5) return "";
+    var rr = Math.min(r, w / 2, h);
+    return "M" + x + "," + (y + h) +
+           "L" + x + "," + (y + rr) +
+           "Q" + x + "," + y + " " + (x + rr) + "," + y +
+           "L" + (x + w - rr) + "," + y +
+           "Q" + (x + w) + "," + y + " " + (x + w) + "," + (y + rr) +
+           "L" + (x + w) + "," + (y + h) + "Z";
+  }
+
+  function tipFor(host, tipNode) {
+    return function (evt, html) {
+      if (html === null) { tipNode.classList.remove("show"); return; }
+      var hb = host.getBoundingClientRect();
+      var tb = evt.target.getBoundingClientRect();
+      tipNode.innerHTML = html;
+      tipNode.style.left = (tb.left - hb.left + tb.width / 2) + "px";
+      tipNode.style.top = (tb.top - hb.top - 8) + "px";
+      tipNode.classList.add("show");
+    };
+  }
+
+  /* ---------- Chart A: grouped columns, three series over six tiers ---------- */
+  function drawA() {
+    var W = 720, H = 360;
+    var L = 46, R = 10, T = 14, B = 54;
+    var pw = W - L - R, ph = H - T - B;
+    var svg = el("svg", {
+      viewBox: "0 0 " + W + " " + H,
+      role: "img",
+      "aria-label": "Grouped column chart. Share of each tier reached by the 2010 survey, the 2019 log, and fourteen 2026 degree programs. All three are near their maximum at tiers 1A and 1B and fall sharply from tier 2 down."
+    });
+
+    var ticks = [0, 25, 50, 75, 100];
+    ticks.forEach(function (t) {
+      var y = T + ph - (t / 100) * ph;
+      svg.appendChild(el("line", { x1: L, y1: y, x2: L + pw, y2: y,
+        stroke: t === 0 ? "var(--axis)" : "var(--grid)", "stroke-width": 1, "shape-rendering": "crispEdges" }));
+      var lab = el("text", { x: L - 9, y: y + 4, "text-anchor": "end", fill: "var(--ink-muted)",
+        "font-size": 11, "font-family": "var(--f-mono)" });
+      lab.textContent = t + "%";
+      svg.appendChild(lab);
+    });
+
+    var gw = pw / TIERS.length;
+    var BAR = 22, GAP = 2;
+    var cluster = SERIES.length * BAR + (SERIES.length - 1) * GAP;
+
+    TIERS.forEach(function (row, gi) {
+      var gx = L + gi * gw;
+      var startX = gx + (gw - cluster) / 2;
+
+      SERIES.forEach(function (s, si) {
+        var v = pct(row[s.key], row.n);
+        var h = (v / 100) * ph;
+        var x = startX + si * (BAR + GAP);
+        var y = T + ph - h;
+        var p = el("path", { d: colPath(x, y, BAR, h, 4), fill: "var(" + s.token + ")", class: "bar" });
+        p.dataset.k = s.key;
+        svg.appendChild(p);
+
+        var hit = el("rect", { x: x - 2, y: T, width: BAR + 4, height: ph, class: "hit" });
+        hit.addEventListener("mouseenter", function (e) {
+          svg.classList.add("dim");
+          Array.prototype.forEach.call(svg.querySelectorAll(".bar"), function (b) {
+            b.classList.toggle("on", b.dataset.k === s.key);
+          });
+          showA(e, "<b>" + s.name + "</b><br>Index " + row.tier +
+            ' &middot; <span class="num">' + row[s.key] + " of " + row.n + "</span>" +
+            ' &middot; <span class="num">' + fmt1(v) + "%</span>");
+        });
+        hit.addEventListener("mouseleave", function () {
+          svg.classList.remove("dim");
+          showA(null, null);
+        });
+        svg.appendChild(hit);
+      });
+
+      var tl = el("text", { x: gx + gw / 2, y: T + ph + 21, "text-anchor": "middle",
+        fill: "var(--ink)", "font-size": 13, "font-weight": 500, "font-family": "var(--f-sans)" });
+      tl.textContent = "Index " + row.tier;
+      svg.appendChild(tl);
+
+      var nl = el("text", { x: gx + gw / 2, y: T + ph + 38, "text-anchor": "middle",
+        fill: "var(--ink-muted)", "font-size": 11, "font-family": "var(--f-mono)" });
+      nl.textContent = row.n + " titles";
+      svg.appendChild(nl);
+    });
+
+    var host = document.getElementById("chartA");
+    host.appendChild(svg);
+    var showA = tipFor(host.parentNode, document.getElementById("tipA"));
+
+    var leg = document.getElementById("legA");
+    SERIES.forEach(function (s) {
+      var sp = document.createElement("span");
+      var sw = document.createElement("i");
+      sw.style.background = "var(" + s.token + ")";
+      sp.appendChild(sw);
+      sp.appendChild(document.createTextNode(s.name));
+      leg.appendChild(sp);
+    });
+
+    var t = document.getElementById("tblA");
+    var head = "<tr><th>Tier</th><th>Titles</th>" +
+      SERIES.map(function (s) { return "<th>" + s.name + "</th>"; }).join("") + "</tr>";
+    var body = TIERS.map(function (r) {
+      return "<tr><td>Index " + r.tier + "</td><td>" + r.n + "</td>" +
+        SERIES.map(function (s) {
+          return "<td>" + r[s.key] + " &middot; " + fmt1(pct(r[s.key], r.n)) + "%</td>";
+        }).join("") + "</tr>";
+    }).join("");
+    t.innerHTML = "<thead>" + head + "</thead><tbody>" + body + "</tbody>";
+  }
+
+  /* ---------- Chart B: single series, five rank bands ---------- */
+  function drawB() {
+    var W = 720, H = 320;
+    var L = 46, R = 10, T = 26, B = 54;
+    var pw = W - L - R, ph = H - T - B;
+    var MAX = 200;
+    var svg = el("svg", {
+      viewBox: "0 0 " + W + " " + H,
+      role: "img",
+      "aria-label": "Column chart. Titles seated from each band of two hundred recording ranks: 191, then 145, 90, 63 and 47. Retention falls steadily as rank descends."
+    });
+
+    [0, 50, 100, 150, 200].forEach(function (t) {
+      var y = T + ph - (t / MAX) * ph;
+      svg.appendChild(el("line", { x1: L, y1: y, x2: L + pw, y2: y,
+        stroke: t === 0 ? "var(--axis)" : "var(--grid)", "stroke-width": 1, "shape-rendering": "crispEdges" }));
+      var lab = el("text", { x: L - 9, y: y + 4, "text-anchor": "end", fill: "var(--ink-muted)",
+        "font-size": 11, "font-family": "var(--f-mono)" });
+      lab.textContent = t;
+      svg.appendChild(lab);
+    });
+
+    var gw = pw / BANDS.length, BAR = 24;
+    BANDS.forEach(function (row, i) {
+      var x = L + i * gw + (gw - BAR) / 2;
+      var h = (row.seated / MAX) * ph;
+      var y = T + ph - h;
+      svg.appendChild(el("path", { d: colPath(x, y, BAR, h, 4), fill: "var(--s1)", class: "bar" }));
+
+      var cap = el("text", { x: x + BAR / 2, y: y - 9, "text-anchor": "middle",
+        fill: "var(--ink)", "font-size": 13, "font-weight": 500, "font-family": "var(--f-mono)" });
+      cap.textContent = row.seated;
+      svg.appendChild(cap);
+
+      var hit = el("rect", { x: x - 10, y: T, width: BAR + 20, height: ph, class: "hit" });
+      hit.addEventListener("mouseenter", function (e) {
+        showB(e, "<b>Ranks " + row.band + "</b><br>" +
+          '<span class="num">' + row.seated + " of 200 seated &middot; " +
+          fmt1(pct(row.seated, 200)) + "%</span>");
+      });
+      hit.addEventListener("mouseleave", function () { showB(null, null); });
+      svg.appendChild(hit);
+
+      var bl = el("text", { x: L + i * gw + gw / 2, y: T + ph + 21, "text-anchor": "middle",
+        fill: "var(--ink)", "font-size": 13, "font-weight": 500, "font-family": "var(--f-sans)" });
+      bl.textContent = row.band;
+      svg.appendChild(bl);
+    });
+
+    var axname = el("text", { x: L, y: T + ph + 40, "text-anchor": "start",
+      fill: "var(--ink-muted)", "font-size": 11, "font-family": "var(--f-sans)" });
+    axname.textContent = "Recording rank, jazzstandards.com — titles seated out of each band of 200";
+    svg.appendChild(axname);
+
+    var host = document.getElementById("chartB");
+    host.appendChild(svg);
+    var showB = tipFor(host.parentNode, document.getElementById("tipB"));
+
+    var t = document.getElementById("tblB");
+    t.innerHTML = "<thead><tr><th>Rank band</th><th>Seated</th><th>Of band</th></tr></thead><tbody>" +
+      BANDS.map(function (r) {
+        return "<tr><td>" + r.band + "</td><td>" + r.seated + " of 200</td><td>" +
+          fmt1(pct(r.seated, 200)) + "%</td></tr>";
+      }).join("") + "</tbody>";
+  }
+
+  /* ---------- Chart C: share of titles against share of calls ---------- */
+  function drawC() {
+    var W = 720, H = 300;
+    var L = 152, R = 46, T = 30, B = 34;
+    var pw = W - L - R, ph = H - T - B;
+    var MAX = 70;
+    var svg = el("svg", {
+      viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": "Paired horizontal bars. Index 1 is 20 percent of the titles and 68.3 percent of the calls; Indexes 3 to 5 are 64.1 percent of the titles and 12.3 percent of the calls. The two shares invert."
+    });
+
+    [0, 20, 40, 60].forEach(function (t) {
+      var x = L + (t / MAX) * pw;
+      svg.appendChild(el("line", { x1: x, y1: T, x2: x, y2: T + ph,
+        stroke: t === 0 ? "var(--axis)" : "var(--grid)", "stroke-width": 1, "shape-rendering": "crispEdges" }));
+      var lab = el("text", { x: x, y: T - 10, "text-anchor": "middle", fill: "var(--ink-muted)",
+        "font-size": 11, "font-family": "var(--f-mono)" });
+      lab.textContent = t + "%";
+      svg.appendChild(lab);
+    });
+
+    var pairs = [
+      { key: "titles", name: "Share of the 729 titles", token: "--s1" },
+      { key: "calls",  name: "Share of the 2,038 calls", token: "--s2" }
+    ];
+    var gh = ph / CONC.length, BAR = 22, GAP = 2;
+
+    CONC.forEach(function (row, gi) {
+      var gy = T + gi * gh;
+      var startY = gy + (gh - (BAR * 2 + GAP)) / 2;
+
+      pairs.forEach(function (s, si) {
+        var v = row[s.key];
+        var w = (v / MAX) * pw;
+        var y = startY + si * (BAR + GAP);
+        svg.appendChild(el("path", {
+          d: "M" + L + "," + y + "H" + (L + w - 4) + "a4,4 0 0 1 4,4V" + (y + BAR - 4) +
+             "a4,4 0 0 1 -4,4H" + L + "Z",
+          fill: "var(" + s.token + ")", class: "bar"
+        }));
+        var vl = el("text", { x: L + w + 7, y: y + BAR / 2 + 4, "text-anchor": "start",
+          fill: "var(--ink)", "font-size": 12, "font-family": "var(--f-mono)" });
+        vl.textContent = fmt1(v) + "%";
+        svg.appendChild(vl);
+
+        var hit = el("rect", { x: L, y: y - 1, width: pw, height: BAR + 2, class: "hit" });
+        hit.addEventListener("mouseenter", function (e) {
+          showC(e, "<b>" + row.full + "</b> &middot; " + row.sub + "<br>" + s.name +
+            ': <span class="num">' + fmt1(v) + "%</span>" + (row.resid ? "<br>residual" : ""));
+        });
+        hit.addEventListener("mouseleave", function () { showC(null, null); });
+        svg.appendChild(hit);
+      });
+
+      var gl = el("text", { x: L - 14, y: gy + gh / 2 - 2, "text-anchor": "end",
+        fill: "var(--ink)", "font-size": 13.5, "font-weight": 500, "font-family": "var(--f-sans)" });
+      gl.textContent = row.group;
+      svg.appendChild(gl);
+      var sl = el("text", { x: L - 14, y: gy + gh / 2 + 15, "text-anchor": "end",
+        fill: "var(--ink-muted)", "font-size": 11, "font-family": "var(--f-mono)" });
+      sl.textContent = row.sub;
+      svg.appendChild(sl);
+    });
+
+    var host = document.getElementById("chartC");
+    host.appendChild(svg);
+    var showC = tipFor(host.parentNode, document.getElementById("tipC"));
+
+    var leg = document.getElementById("legC");
+    pairs.forEach(function (s) {
+      var sp = document.createElement("span");
+      var sw = document.createElement("i");
+      sw.style.background = "var(" + s.token + ")";
+      sp.appendChild(sw);
+      sp.appendChild(document.createTextNode(s.name));
+      leg.appendChild(sp);
+    });
+
+    document.getElementById("tblC").innerHTML =
+      "<thead><tr><th>Group</th><th>Titles</th><th>Share of titles</th><th>Share of calls</th></tr></thead><tbody>" +
+      CONC.map(function (r) {
+        return "<tr><td>" + r.group + "</td><td>" + r.sub.replace(/.*· /, "") + "</td><td>" +
+          fmt1(r.titles) + "%</td><td>" + fmt1(r.calls) + "%" + (r.resid ? " (residual)" : "") + "</td></tr>";
+      }).join("") + "</tbody>";
+  }
+
+  /* ---------- Chart D: the pair table as a dot plot ---------- */
+  function drawD() {
+    var RH = 31;
+    var W = 720, L = 118, R = 34, T = 40, B = 30;
+    var ph = PAIRS.length * RH;
+    var H = T + ph + B, pw = W - L - R;
+    var svg = el("svg", {
+      viewBox: "0 0 " + W + " " + H, role: "img",
+      "aria-label": "Dot plot of the pair table. On every row the 2010 survey and the 2019 log sit well left of the fifty percent line. The recording ranking crosses it at Index 1A against 5A and runs to 85 percent at Index 3 against Index 4."
+    });
+
+    [0, 25, 75, 100].forEach(function (t) {
+      var x = L + (t / 100) * pw;
+      svg.appendChild(el("line", { x1: x, y1: T - 8, x2: x, y2: T + ph,
+        stroke: "var(--grid)", "stroke-width": 1, "shape-rendering": "crispEdges" }));
+      var lab = el("text", { x: x, y: T - 18, "text-anchor": "middle", fill: "var(--ink-muted)",
+        "font-size": 11, "font-family": "var(--f-mono)" });
+      lab.textContent = t + "%";
+      svg.appendChild(lab);
+    });
+
+    var x50 = L + 0.5 * pw;
+    svg.appendChild(el("line", { x1: x50, y1: T - 8, x2: x50, y2: T + ph,
+      stroke: "var(--axis)", "stroke-width": 1, "shape-rendering": "crispEdges" }));
+    var rl = el("text", { x: x50, y: T - 18, "text-anchor": "middle", fill: "var(--ink-2)",
+      "font-size": 11, "font-weight": 600, "font-family": "var(--f-sans)" });
+    rl.textContent = "50% — cannot tell the two tiers apart";
+    svg.appendChild(rl);
+
+    var marks = [
+      { key: "survey", name: "The 2010 survey", token: "--s1", r: 4.5 },
+      { key: "log",    name: "The 2019 log",    token: "--s2", r: 4.5 },
+      { key: "rank",   name: "The recording ranking", token: "--s3", r: 6.5 }
+    ];
+
+    PAIRS.forEach(function (row, i) {
+      var cy = T + i * RH + RH / 2;
+      var vals = marks.map(function (m) { return row[m.key]; });
+      var lo = Math.min.apply(null, vals), hi = Math.max.apply(null, vals);
+      svg.appendChild(el("line", { x1: L + (lo / 100) * pw, y1: cy, x2: L + (hi / 100) * pw, y2: cy,
+        stroke: "var(--grid)", "stroke-width": 2, "stroke-linecap": "round" }));
+
+      marks.forEach(function (m) {
+        var cx = L + (row[m.key] / 100) * pw;
+        svg.appendChild(el("circle", { cx: cx, cy: cy, r: m.r + 2, fill: "var(--surface)" }));
+        svg.appendChild(el("circle", { cx: cx, cy: cy, r: m.r, fill: "var(" + m.token + ")" }));
+      });
+
+      if (row.rank >= 48) {
+        var vl = el("text", { x: L + (row.rank / 100) * pw, y: cy - 12, "text-anchor": "middle",
+          fill: "var(--ink)", "font-size": 12, "font-weight": 500, "font-family": "var(--f-mono)" });
+        vl.textContent = row.rank + "%";
+        svg.appendChild(vl);
+      }
+
+      var pl = el("text", { x: L - 14, y: cy + 4.5, "text-anchor": "end", fill: "var(--ink)",
+        "font-size": 13, "font-weight": 500, "font-family": "var(--f-sans)" });
+      pl.textContent = "Index " + row.pair;
+      svg.appendChild(pl);
+
+      var hit = el("rect", { x: 0, y: cy - RH / 2, width: W, height: RH, class: "hit" });
+      hit.addEventListener("mouseenter", function (e) {
+        showD(e, "<b>Index " + row.pair + "</b>" + (row.approx ? " &middot; approximate" : "") + "<br>" +
+          marks.map(function (m) {
+            return m.name + ': <span class="num">' + row[m.key] + "%</span>";
+          }).join("<br>") + "<br>" + row.read);
+      });
+      hit.addEventListener("mouseleave", function () { showD(null, null); });
+      svg.appendChild(hit);
+    });
+
+    var host = document.getElementById("chartD");
+    host.appendChild(svg);
+    var showD = tipFor(host.parentNode, document.getElementById("tipD"));
+
+    var leg = document.getElementById("legD");
+    marks.forEach(function (m) {
+      var sp = document.createElement("span");
+      var sw = document.createElement("i");
+      sw.style.background = "var(" + m.token + ")";
+      if (m.key === "rank") { sw.style.width = "13px"; sw.style.height = "13px"; sw.style.borderRadius = "50%"; }
+      else { sw.style.borderRadius = "50%"; sw.style.width = "9px"; sw.style.height = "9px"; }
+      sp.appendChild(sw);
+      sp.appendChild(document.createTextNode(m.name));
+      leg.appendChild(sp);
+    });
+
+    document.getElementById("tblD").innerHTML =
+      "<thead><tr><th>Two indexes</th><th>Ranking</th><th>The log</th><th>The survey</th><th>Plain reading</th></tr></thead><tbody>" +
+      PAIRS.map(function (r) {
+        return "<tr><td>Index " + r.pair + "</td><td>" + r.rank + "%</td><td>" + r.log + "%</td><td>" +
+          r.survey + "%</td><td style=\"text-align:left;white-space:normal;font-family:var(--f-sans)\">" +
+          r.read + "</td></tr>";
+      }).join("") + "</tbody>";
+  }
+
+  drawA();
+  drawC();
+  drawB();
+  drawD();
+})();
+</script>
+
+</body>
+</html>
